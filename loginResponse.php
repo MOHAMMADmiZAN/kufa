@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $logVerifyTempAssoc = $logVerifyTemp->fetch_assoc();
             if ($logVerifyTempAssoc['emailverified'] > 0) {
                 $_SESSION['tempUser'] = 'Your Email Has been Delete From Active User Database , Please Contact your administrator';
+                header("Location:login.php");
             }
         }
         if (isset($logVerifyQuery)) {
@@ -25,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     if ($logPasswordVerify) {
                         $_SESSION['email'] = $logVerifyAssoc['email'];
                         $_SESSION['id'] = $logVerifyAssoc['id'];
-                        header("Location:dashboard/register.php");
+                        header("Location:dashboard/index.php");
                     } else {
                         $_SESSION['passwordError'] = "password Invalid";
                         header("Location:login.php");

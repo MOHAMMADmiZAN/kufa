@@ -56,7 +56,7 @@ session_start();
                 <label for="l-email">EMAIL:</label>
                 <input type="text" id="l-email" class="form-control" name="email" placeholder="Enter your password">
                 <?php
-                if (isset($_SESSION['EmailError'])) {
+                if (isset($_SESSION['EmailError']) && !isset($_SESSION['tempUser'])) {
                     ?>
                     <div class="alert alert-danger text-center text-uppercase">
                         <?php echo $_SESSION['EmailError'];
