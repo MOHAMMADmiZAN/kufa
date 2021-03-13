@@ -64,6 +64,15 @@ session_start();
                         ?>
                     </div>
                 <?php } ?>
+                <?php
+                if (isset($_SESSION['tempUser'])) {
+                    ?>
+                    <div class="alert alert-danger text-center text-uppercase">
+                        <?php echo $_SESSION['tempUser'];
+                        unset($_SESSION['tempUser']);
+                        ?>
+                    </div>
+                <?php } ?>
 
 
                 <label for="l-password">PASSWORD:</label>

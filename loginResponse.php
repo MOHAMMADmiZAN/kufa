@@ -5,9 +5,17 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     /// Login Verify Query ///
-    $logVerify = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` =  '$email' ";
+    $logVerify = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` =  '$email' and `status` LIKE 1";
+    $logVerifyTemp = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` =  '$email' and `status` LIKE 2";
     if (isset($dataBase)) {
         $logVerifyQuery = $dataBase->query($logVerify);
+        $logVerifyTemp = $dataBase->query($logVerifyTemp);
+        if (isset($logVerifyTemp)) {
+            $logVerifyTempAssoc = $logVerifyTemp->fetch_assoc();
+            if ($logVerifyTempAssoc['emailverified'] > 0) {
+                $_SESSION['tempUser'] = 'Your Email Has been Delete From Active User Database , Please Contact your administrator';
+            }
+        }
         if (isset($logVerifyQuery)) {
             $logVerifyAssoc = $logVerifyQuery->fetch_assoc();
             if (isset($logVerifyAssoc) && $logVerifyAssoc['emailverified'] > 0) {
