@@ -1,6 +1,7 @@
 <?php
 require_once 'session.php';
 require_once '../includes/dataBase.php';
+require_once'dbconfig.php';
 if (isset($dataBase)) {
     $dashBoardUserId = $_SESSION['id'];
     if (isset($dashBoardUserId)) {
@@ -59,6 +60,7 @@ if (isset($dataBase)) {
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="../assets/css/starlight.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
+    <script src="https://kit.fontawesome.com/0b72508749.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -83,7 +85,7 @@ if (isset($dataBase)) {
         </a><!-- sl-menu-link -->
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">
-                <i class="menu-item-icon fa fa-users tx-20"></i>
+                <i class="menu-item-icon far fa-user tx-20"></i>
                 <span class="menu-item-label">Users</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
@@ -95,20 +97,20 @@ if (isset($dataBase)) {
 
         </ul>
 
-        <a href="#" class="sl-menu-link">
+        <a href="socials.php" class="sl-menu-link">
             <div class="sl-menu-item">
-                <i class="menu-item-icon fas fa-people-arrows tx-20"></i>
+                <i class="menu-item-icon far fa-frown tx-20"></i>
                 <span class="menu-item-label">Socials</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-<!--        <ul class="sl-menu-sub nav flex-column">-->
-<!--            <li class="nav-item"><a href="chart-morris.html" class="nav-link">Morris Charts</a></li>-->
-<!--            <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>-->
-<!--            <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>-->
-<!--            <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li>-->
-<!--            <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>-->
-<!--        </ul>-->
+        <!--        <ul class="sl-menu-sub nav flex-column">-->
+        <!--            <li class="nav-item"><a href="chart-morris.html" class="nav-link">Morris Charts</a></li>-->
+        <!--            <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>-->
+        <!--            <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Chart JS</a></li>-->
+        <!--            <li class="nav-item"><a href="chart-rickshaw.html" class="nav-link">Rickshaw</a></li>-->
+        <!--            <li class="nav-item"><a href="chart-sparkline.html" class="nav-link">Sparkline</a></li>-->
+        <!--        </ul>-->
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
