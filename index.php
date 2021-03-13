@@ -1,6 +1,6 @@
 <?php
 require_once 'dashboard/inc/dbconfig.php';
-$social = "SELECT * FROM `socials`";
+$social = "SELECT * FROM `socials` WHERE `status` LIKE 1 LIMIT 5";
 if (isset($kufaDataBase)) {
     $socialQuery = $kufaDataBase->Query($social);
     if ($socialQuery) {
