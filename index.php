@@ -1,12 +1,12 @@
 <?php
 require_once 'dashboard/inc/dbconfig.php';
 $social = "SELECT * FROM `socials`";
-if (isset($socialDataBase)) {
-    $socialQuery = $socialDataBase->Query($social);
+if (isset($kufaDataBase)) {
+    $socialQuery = $kufaDataBase->Query($social);
     if ($socialQuery) {
         echo "run";
     }
-    $socialDataBase->close();
+    $kufaDataBase->close();
 }
 ?>
 
@@ -148,7 +148,7 @@ if (isset($socialDataBase)) {
                                 <?php
                                 if (isset($socialQuery)):
                                     foreach ($socialQuery as $index => $social) { ?>
-                                        <li><a href="//<?= $social['link'] ?>"><i
+                                        <li><a href="//<?= $social['link'] ?>" target="_blank"><i
                                                         class="<?= $social['icon'] ?> l-46"></i></a>
                                         </li>
 
