@@ -447,5 +447,5 @@
         <script src="assets/js/main.js"></script>
     </body>
 
-<!-- Mirrored from themebeyond.com/html/kufa/blog-details.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Mar 2021 14:39:17 GMT -->
+
 </html>
