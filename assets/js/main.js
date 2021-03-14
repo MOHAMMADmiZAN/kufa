@@ -13,7 +13,7 @@ $(window).on('load', function () {
 
 
 // One Page Nav
-var top_offset = $('.transparent-header').height() - 40;
+let top_offset = $('.transparent-header').height() - 40;
 $('.main-menu nav ul').onePageNav({
 	currentClass: 'active',
 	scrollOffset: top_offset,
@@ -31,7 +31,7 @@ $(".navbar-nav li a").on('click', function () {
 
 // sticky-menu
 $(window).on('scroll', function () {
-	var scroll = $(window).scrollTop();
+	let scroll = $(window).scrollTop();
 	if (scroll < 245) {
 		$("#header-sticky").removeClass("sticky-menu");
 	} else {
@@ -52,13 +52,13 @@ $(".menu-close,.offcanvas-overly").on("click", function () {
 
 // mainSlider
 function mainSlider() {
-	var BasicSlider = $('.slider-active');
+	let BasicSlider = $('.slider-active');
 	BasicSlider.on('init', function (e, slick) {
-		var $firstAnimatingElements = $('.single-slider:first-child').find('[data-animation]');
+		let $firstAnimatingElements = $('.single-slider:first-child').find('[data-animation]');
 		doAnimations($firstAnimatingElements);
 	});
 	BasicSlider.on('beforeChange', function (e, slick, currentSlide, nextSlide) {
-		var $animatingElements = $('.single-slider[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
+		let $animatingElements = $('.single-slider[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
 		doAnimations($animatingElements);
 	});
 	BasicSlider.slick({
@@ -73,11 +73,11 @@ function mainSlider() {
 	});
 
 	function doAnimations(elements) {
-		var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+		let animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 		elements.each(function () {
-			var $this = $(this);
-			var $animationDelay = $this.data('delay');
-			var $animationType = 'animated ' + $this.data('animation');
+			let $this = $(this);
+			let $animationDelay = $this.data('delay');
+			let $animationType = 'animated ' + $this.data('animation');
 			$this.css({
 				'animation-delay': $animationDelay,
 				'-webkit-animation-delay': $animationDelay
@@ -212,7 +212,7 @@ $('.popup-video').magnificPopup({
 // isotop
 $('.gallery-active').imagesLoaded( function() {
 	// init Isotope
-	var $grid = $('.gallery-active').isotope({
+	let $grid = $('.gallery-active').isotope({
 	  itemSelector: '.grid-item',
 	  percentPosition: true,
 	  masonry: {
@@ -222,7 +222,7 @@ $('.gallery-active').imagesLoaded( function() {
 	});
 	// filter items on button click
 	$('.portfolio-menu').on('click', 'button', function () {
-		var filterValue = $(this).attr('data-filter');
+		let filterValue = $(this).attr('data-filter');
 		$grid.isotope({ filter: filterValue });
 	});
 });
@@ -258,7 +258,7 @@ AOS.init({
 
 // WOW active
 function wowanimation() {
-	var wow = new WOW({
+	let wow = new WOW({
 		boxClass: 'wow',
 		animateClass: 'animated',
 		offset: 0,

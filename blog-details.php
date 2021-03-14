@@ -1,7 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    
-<!-- Mirrored from themebeyond.com/html/kufa/blog-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Mar 2021 14:39:13 GMT -->
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -46,8 +44,8 @@
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.html" class="navbar-brand logo-sticky-none"><img src="assets/img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.html" class="navbar-brand s-logo-none"><img src="assets/img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="assets/img/logo/logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="assets/img/logo/s_logo.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -56,12 +54,12 @@
                                     </button>
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <ul class="navbar-nav ml-auto">
-                                            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="index.html#about">about</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="index.html#service">service</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="index.html#portfolio">portfolio</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="blog.html">Blog</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                                            <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="index.php#about">about</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="index.php#service">service</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="index.php#portfolio">portfolio</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="blog.php">Blog</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="index.php#contact">Contact</a></li>
                                         </ul>
                                     </div>
                                     <div class="header-search">
@@ -85,7 +83,7 @@
                     </button>
                 </div>
                 <div class="logo-side mb-30">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="assets/img/logo/logo.png" alt="" />
                     </a>
                 </div>
@@ -138,7 +136,7 @@
                                 <h2>BLOG Single POST</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">BLOG DETAILS</li>
                                     </ol>
                                 </nav>
@@ -449,5 +447,5 @@
         <script src="assets/js/main.js"></script>
     </body>
 
-<!-- Mirrored from themebeyond.com/html/kufa/blog-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Mar 2021 14:39:17 GMT -->
+<!-- Mirrored from themebeyond.com/html/kufa/blog-details.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Mar 2021 14:39:17 GMT -->
 </html>

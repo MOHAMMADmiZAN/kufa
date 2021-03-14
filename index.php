@@ -124,8 +124,8 @@ $kufaDataBase->close();
                     </div>
                     <div class="contact-list mb-30">
                         <h4>Email Address</h4>
-                        <p><a href="https://themebeyond.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81e8efe7eec1e4f9e0ecf1ede4afe2eeec">[email&#160;protected]</a></p>
-                        <p><a href="https://themebeyond.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="204558414d504c450e4d41494c6048554d0e434f4d">[email&#160;protected]</a></p>
+                        <p><a href="#" class="__cf_email__" data-cfemail="81e8efe7eec1e4f9e0ecf1ede4afe2eeec">[email&#160;protected]</a></p>
+                        <p><a href="#" class="__cf_email__" data-cfemail="204558414d504c450e4d41494c6048554d0e434f4d">[email&#160;protected]</a></p>
                     </div>
                 </div>
                 <div class="side-instagram">
@@ -586,7 +586,7 @@ $kufaDataBase->close();
                                     <ul>
                                         <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
                                         <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>
-                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><a href="https://themebeyond.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036a6d656c43667b666e736f662d606c6e">[email&#160;protected]</a></li>
+                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><a href="#" class="__cf_email__" data-cfemail="036a6d656c43667b666e736f662d606c6e">[email&#160;protected]</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -630,7 +630,7 @@ $kufaDataBase->close();
 
 
 		<!-- JS here -->
-        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+      <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/isotope.pkgd.min.js"></script>
