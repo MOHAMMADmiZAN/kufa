@@ -47,6 +47,15 @@
                 });
         }
     )
+
+    $('.resId').click(
+        function () {
+            let id = $(this).attr('data-id');
+            $('.resultId').attr("value",""+id);
+
+        }
+    )
 </script>
+
 </body>
 </html>

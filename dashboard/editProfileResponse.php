@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $imgExplode = explode(".", $imgName);
     $imgExtension = end($imgExplode);
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG", "webp"];
-    if (($imgName == '')) {
+    if (($imgName === '')) {
         $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone' WHERE `id`='$sessionId'";
         if (isset($dataBase)) {
             $editProfileQuery = $dataBase->query($editProfile);

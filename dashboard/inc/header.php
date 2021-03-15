@@ -1,7 +1,7 @@
 <?php
 require_once 'session.php';
 require_once '../includes/dataBase.php';
-require_once'dbconfig.php';
+require_once 'dbconfig.php';
 if (isset($dataBase)) {
     $dashBoardUserId = $_SESSION['id'];
     if (isset($dashBoardUserId)) {

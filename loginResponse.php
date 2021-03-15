@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $logVerifyTemp = "SELECT COUNT(*) as emailverified,password,id,email,status FROM `users` WHERE `email` =  '$email' and `status` LIKE 2";
     if (isset($dataBase)) {
         $logVerifyQuery = $dataBase->query($logVerify);
-        $logVerifyTemp = $dataBase->query($logVerifyTemp);
+        $logVerifyTempQuery = $dataBase->query($logVerifyTemp);
         if (isset($logVerifyTemp)) {
-            $logVerifyTempAssoc = $logVerifyTemp->fetch_assoc();
+            $logVerifyTempAssoc = $logVerifyTempQuery->fetch_assoc();
             if ($logVerifyTempAssoc['emailverified'] > 0) {
                 $_SESSION['tempUser'] = 'Your Email Has been Delete From Active User Database , Please Contact your administrator';
                 header("Location:login.php");
