@@ -1,6 +1,6 @@
 <?php
 require_once "inc/header.php";
-$viewInbox = "SELECT * FROM `inbox`";
+$viewInbox = "SELECT * FROM `inbox` ORDER BY `id` DESC";
 if (isset($kufaDataBase)) {
     $viewInboxQuery = $kufaDataBase->query($viewInbox);
     $kufaDataBase->close();
@@ -11,6 +11,11 @@ if (isset($kufaDataBase)) {
 <style>
     th {
         text-align: center;
+    }
+
+    .msg-bold {
+        font-weight: 700;
+        color: black;
     }
 </style>
 <div class="sl-mainpanel">
@@ -35,23 +40,24 @@ if (isset($kufaDataBase)) {
                             <th>Status</th>
                             <th>Action</th>
 
+
                         </tr>
                         <?php
                         if (isset($viewInboxQuery)):
                             foreach ($viewInboxQuery as $index => $user) { ?>
-                                <tr>
+                                <tr class="<?php if ($user['readStatus'] == 2) echo 'msg-bold' ?>">
                                     <td><?= ++$index ?></td>
                                     <td><?= $user['name'] ?></td>
                                     <td><?= $user['email'] ?></td>
                                     <td><?= $user['message'] ?></td>
                                     <?php if ($user['readStatus'] == 2) { ?>
                                         <td><a href="inboxStatus.php?id=<?= $user['id'] ?>" type="button"
-                                               class="btn btn-info">Read</a></td>
+                                               class="btn btn-primary">Read</a></td>
                                     <?php } else { ?>
                                         <td><a href="inboxStatus.php?id=<?= $user['id'] ?>" type="button"
-                                               class="btn btn-info">Unread</a></td>
+                                               class="btn btn-primary">Unread</a></td>
                                     <?php } ?>
-
+                                    <td><a href="#" type="button" class="btn btn-warning">DELETE</a></td>
 
                                 </tr>
                             <?php } endif; ?>

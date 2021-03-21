@@ -7,8 +7,6 @@ if (isset($kufaDataBase)) {
     $socialSelectQuery = $kufaDataBase->query($socialSelect);
     $socialSelectQueryAssoc = $socialSelectQuery->fetch_assoc();
 
-
-
     if ($socialSelectQueryAssoc['status'] != 2) {
         $socialUpdate = "UPDATE `socials` SET `status`= 2 WHERE id = '$id'";
         if (isset($socialUpdate)) {
