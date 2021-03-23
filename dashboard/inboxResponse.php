@@ -2,9 +2,9 @@
 require_once 'inc/dbconfig.php';
 function xssCleaner($inputStr)
 {
-    $return_str = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputStr);
-    $return_str = str_ireplace('%3Cscript', '', $return_str);
-    return $return_str;
+    $returnStr = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputStr);
+    $returnStr = str_ireplace('%3Cscript', '', $returnStr);
+    return $returnStr;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

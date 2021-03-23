@@ -1,6 +1,6 @@
 <?php
 require_once "inc/header.php";
-$viewInbox = "SELECT * FROM `inbox` WHERE `tashStatus`=1 ORDER BY `id` DESC";
+$viewInbox = "SELECT * FROM `inbox` WHERE `tashStatus`=2 ORDER BY `id` DESC";
 if (isset($kufaDataBase)) {
     $viewInboxQuery = $kufaDataBase->query($viewInbox);
     $kufaDataBase->close();
@@ -24,7 +24,7 @@ if (isset($kufaDataBase)) {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="alert alert-primary text-center mt-3" role="alert">
-                        <h1>INBOX</h1>
+                        <h1>TASKBAR</h1>
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@ if (isset($kufaDataBase)) {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Message</th>
-                            <th>Status</th>
+                            <th>Action</th>
                             <th>Action</th>
 
 
@@ -45,20 +45,16 @@ if (isset($kufaDataBase)) {
                         <?php
                         if (isset($viewInboxQuery)):
                             foreach ($viewInboxQuery as $index => $user) { ?>
-                                <tr class="<?php if ($user['readStatus'] == 2) echo 'msg-bold' ?>">
+                                <tr class="<?php if ($user['readStatus'] == 1) echo 'msg-bold' ?>">
                                     <td><?= ++$index ?></td>
                                     <td><?= $user['name'] ?></td>
                                     <td><?= $user['email'] ?></td>
                                     <td><?= $user['message'] ?></td>
-                                    <?php if ($user['readStatus'] == 1) { ?>
-                                        <td><a href="inboxStatus.php?id=<?= $user['id'] ?>" type="button"
-                                               class="btn btn-primary">Read</a></td>
-                                    <?php } else { ?>
-                                        <td><a href="inboxStatus.php?id=<?= $user['id'] ?>" type="button"
-                                               class="btn btn-primary">Unread</a></td>
-                                    <?php } ?>
-                                    <td><a href="inboxTemp.php?id=<?= $user['id'] ?>" type="button"
-                                           class="btn btn-warning">Delete</a></td>
+                                    <td><a href="inboxDelete.php?deletedId=<?= $user['id'] ?>" type="button"
+                                           class="btn btn-danger">DELETE</a></td>
+                                    <td><a href="inboxDelete.php?recoverId=<?= $user['id'] ?>" type="button"
+                                           class="btn btn-success">Recover</a></td>
+
 
                                 </tr>
                             <?php } endif; ?>
@@ -72,3 +68,4 @@ if (isset($kufaDataBase)) {
 require_once 'inc/footer.php';
 
 ?>
+
