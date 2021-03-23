@@ -26,8 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
     if (in_array($imgExtension, $supportedExtension, true)) {
         if ($imgSize < 500000) {
-            $sessionId = $_SESSION['id'];
-            $check = "SELECT * FROM `users` WHERE id = $sessionId";
+            $check = "SELECT * FROM `users` WHERE id = '$sessionId'";
             /// default image chk ///
             if (isset($dataBase)) {
                 $checkQuery = $dataBase->query($check);
@@ -41,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 }
 
             }
-            $newName = random_int(0, 10000000) . $sessionId . '.' . $imgExtension;
+            $newName = random_int(0, 100000000).'~' . $sessionId . '.' . $imgExtension;
             echo $newName;
             $newLoc = 'upload/' . $newName;
             move_uploaded_file($img['tmp_name'], $newLoc);
