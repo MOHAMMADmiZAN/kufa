@@ -126,27 +126,27 @@ if (isset($dataBase)) {
             <!--            <li class="nav-item"><a href="form-wizards.php" class="nav-link">Form Wizards</a></li>-->
             <!--            <li class="nav-item"><a href="form-editor-text.php" class="nav-link">Text Editor</a></li>-->
         </ul>
-        <a href="#" class="sl-menu-link">
+        <a href="servicesView.php" class="sl-menu-link">
             <div class="sl-menu-item">
-                <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-                <span class="menu-item-label">UI Elements</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
+                <i class="menu-item-icon fas fa-info tx-24"></i>
+                <span class="menu-item-label">Services</span>
+                <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="accordion.php" class="nav-link">Accordion</a></li>
-            <li class="nav-item"><a href="alerts.php" class="nav-link">Alerts</a></li>
-            <li class="nav-item"><a href="buttons.php" class="nav-link">Buttons</a></li>
-            <li class="nav-item"><a href="cards.php" class="nav-link">Cards</a></li>
-            <li class="nav-item"><a href="icons.php" class="nav-link">Icons</a></li>
-            <li class="nav-item"><a href="modal.php" class="nav-link">Modal</a></li>
-            <li class="nav-item"><a href="navigation.php" class="nav-link">Navigation</a></li>
-            <li class="nav-item"><a href="pagination.php" class="nav-link">Pagination</a></li>
-            <li class="nav-item"><a href="popups.php" class="nav-link">Tooltip &amp; Popover</a></li>
-            <li class="nav-item"><a href="progress.php" class="nav-link">Progress</a></li>
-            <li class="nav-item"><a href="spinners.php" class="nav-link">Spinners</a></li>
-            <li class="nav-item"><a href="typography.php" class="nav-link">Typography</a></li>
-        </ul>
+        <!--        <ul class="sl-menu-sub nav flex-column">-->
+        <!--            <li class="nav-item"><a href="accordion.php" class="nav-link">Accordion</a></li>-->
+        <!--            <li class="nav-item"><a href="alerts.php" class="nav-link">Alerts</a></li>-->
+        <!--            <li class="nav-item"><a href="buttons.php" class="nav-link">Buttons</a></li>-->
+        <!--            <li class="nav-item"><a href="cards.php" class="nav-link">Cards</a></li>-->
+        <!--            <li class="nav-item"><a href="icons.php" class="nav-link">Icons</a></li>-->
+        <!--            <li class="nav-item"><a href="modal.php" class="nav-link">Modal</a></li>-->
+        <!--            <li class="nav-item"><a href="navigation.php" class="nav-link">Navigation</a></li>-->
+        <!--            <li class="nav-item"><a href="pagination.php" class="nav-link">Pagination</a></li>-->
+        <!--            <li class="nav-item"><a href="popups.php" class="nav-link">Tooltip &amp; Popover</a></li>-->
+        <!--            <li class="nav-item"><a href="progress.php" class="nav-link">Progress</a></li>-->
+        <!--            <li class="nav-item"><a href="spinners.php" class="nav-link">Spinners</a></li>-->
+        <!--            <li class="nav-item"><a href="typography.php" class="nav-link">Typography</a></li>-->
+        <!--        </ul>-->
         <a href="#" class="sl-menu-link">
             <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
