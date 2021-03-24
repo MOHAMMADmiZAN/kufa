@@ -4,6 +4,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
 <script src="../assets/js/starlight.js"></script>
+
 <script>
     $('.temporaryDelete').click(
         function () {
@@ -13,8 +14,6 @@
             }, 500)
         }
     )
-</script>
-<script>
     $('.recoverUser').click(
         function () {
             let id = $(this).attr('data-id');
@@ -51,7 +50,7 @@
     $('.resId').click(
         function () {
             let id = $(this).attr('data-id');
-            $('.resultId').attr("value",""+id);
+            $('.resultId').attr("value", "" + id);
 
         }
     )

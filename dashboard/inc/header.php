@@ -17,6 +17,10 @@ if (isset($dataBase)) {
     echo "dataBase error";
     die();
 }
+$pageUrl = $_SERVER['PHP_SELF'];
+$linkExplode = explode('/', $pageUrl);
+$linkEnd = end($linkExplode);
+
 
 ?>
 <!DOCTYPE html>
@@ -77,13 +81,14 @@ if (isset($dataBase)) {
 
     <label class="sidebar-label">Navigation</label>
     <div class="sl-sideleft-menu">
-        <a href="index.php" class="sl-menu-link">
+        <a href="index.php" class="sl-menu-link <?= $linkEnd === 'index.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
                 <span class="menu-item-label">Dashboard</span>
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="#" class="sl-menu-link">
+        <a href="#"
+           class="sl-menu-link <?= $linkEnd === 'userList.php' ? 'active' : '' ?> <?= $linkEnd === 'recoverUser.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon far fa-user tx-20"></i>
                 <span class="menu-item-label">Users</span>
@@ -91,13 +96,17 @@ if (isset($dataBase)) {
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="userList.php" class="nav-link">Active User</a></li>
+            <li class="nav-item "><a href="userList.php"
+                                     class="nav-link">Active User</a>
+            </li>
 
-            <li class="nav-item"><a href="recoverUser.php" class="nav-link">Recover User</a></li>
+            <li class="nav-item"><a href="recoverUser.php"
+                                    class="nav-link">Recover
+                    User</a></li>
 
         </ul>
 
-        <a href="socials.php" class="sl-menu-link">
+        <a href="socials.php" class="sl-menu-link <?= $linkEnd === 'socials.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon far fa-frown tx-20"></i>
                 <span class="menu-item-label">Socials</span>
@@ -111,7 +120,8 @@ if (isset($dataBase)) {
         <!--            <li class="nav-item"><a href="chart-rickshaw.php" class="nav-link">Rickshaw</a></li>-->
         <!--            <li class="nav-item"><a href="chart-sparkline.php" class="nav-link">Sparkline</a></li>-->
         <!--        </ul>-->
-        <a href="#" class="sl-menu-link">
+        <a href="#"
+           class="sl-menu-link <?= $linkEnd === 'inbox.php' ? 'active' : '' ?> <?= $linkEnd === 'inboxTask.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon far fa-envelope tx-24"></i>
                 <span class="menu-item-label">Messages</span>
@@ -119,14 +129,17 @@ if (isset($dataBase)) {
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="inbox.php" class="nav-link">Inbox</a></li>
-            <li class="nav-item"><a href="inboxTask.php" class="nav-link">Taskbar</a></li>
+            <li class="nav-item"><a href="inbox.php" class="nav-link">Inbox</a>
+            </li>
+            <li class="nav-item"><a href="inboxTask.php"
+                                    class="nav-link">Taskbar</a>
+            </li>
 
             <!--            <li class="nav-item"><a href="form-validation.php" class="nav-link">Form Validation</a></li>-->
             <!--            <li class="nav-item"><a href="form-wizards.php" class="nav-link">Form Wizards</a></li>-->
             <!--            <li class="nav-item"><a href="form-editor-text.php" class="nav-link">Text Editor</a></li>-->
         </ul>
-        <a href="servicesView.php" class="sl-menu-link">
+        <a href="servicesView.php" class="sl-menu-link<?= $linkEnd === 'servicesView.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon fas fa-info tx-24"></i>
                 <span class="menu-item-label">Services</span>

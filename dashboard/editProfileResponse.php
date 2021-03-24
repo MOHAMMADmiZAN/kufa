@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
     }
     if (in_array($imgExtension, $supportedExtension, true)) {
-        if ($imgSize < 500000) {
+        if ($imgSize < 5000000) {
             $check = "SELECT * FROM `users` WHERE id = '$sessionId'";
             /// default image chk ///
             if (isset($dataBase)) {
