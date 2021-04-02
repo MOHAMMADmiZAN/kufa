@@ -139,7 +139,7 @@ $linkEnd = end($linkExplode);
             <!--            <li class="nav-item"><a href="form-wizards.php" class="nav-link">Form Wizards</a></li>-->
             <!--            <li class="nav-item"><a href="form-editor-text.php" class="nav-link">Text Editor</a></li>-->
         </ul>
-        <a href="servicesView.php" class="sl-menu-link<?= $linkEnd === 'servicesView.php' ? 'active' : '' ?>">
+        <a href="servicesView.php" class="sl-menu-link <?= $linkEnd === 'servicesView.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon fas fa-info tx-24"></i>
                 <span class="menu-item-label">Services</span>
