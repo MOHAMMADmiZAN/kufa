@@ -2,9 +2,11 @@
 require_once 'dashboard/inc/dbconfig.php';
 $social = "SELECT * FROM `socials` WHERE `status` LIKE 1 LIMIT 5";
 $services = "SELECT * FROM `services` WHERE `status` LIKE 1 LIMIT 6";
+$counters = "SELECT * FROM `counters`  LIMIT 4 ";
 if (isset($kufaDataBase)) {
     $socialQuery = $kufaDataBase->Query($social);
     $servicesQuery = $kufaDataBase->Query($services);
+    $countQuery = $kufaDataBase->Query($counters);
     $kufaDataBase->close();
 }
 ?>
@@ -408,50 +410,23 @@ if (isset($kufaDataBase)) {
         <div class="container">
             <div class="fact-wrap">
                 <div class="row justify-content-between">
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="fact-box text-center mb-50">
-                            <div class="fact-icon">
-                                <i class="flaticon-award"></i>
+                    <?php if (isset($countQuery)):
+                        foreach ($countQuery as $index => $value):
+                            ?>
+                            <div class="col-xl-2 col-lg-3 col-sm-6">
+                                <div class="fact-box text-center mb-50">
+                                    <div class="fact-icon">
+                                        <i class="<?= $value['icon'] ?>"></i>
+                                    </div>
+                                    <div class="fact-content">
+                                        <h2><span class="count"><?= $value['number'] ?></span></h2>
+                                        <span><?= $value['title'] ?></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="fact-content">
-                                <h2><span class="count">245</span></h2>
-                                <span>Feature Item</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="fact-box text-center mb-50">
-                            <div class="fact-icon">
-                                <i class="flaticon-like"></i>
-                            </div>
-                            <div class="fact-content">
-                                <h2><span class="count">345</span></h2>
-                                <span>Active Products</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="fact-box text-center mb-50">
-                            <div class="fact-icon">
-                                <i class="flaticon-event"></i>
-                            </div>
-                            <div class="fact-content">
-                                <h2><span class="count">39</span></h2>
-                                <span>Year Experience</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-sm-6">
-                        <div class="fact-box text-center mb-50">
-                            <div class="fact-icon">
-                                <i class="flaticon-woman"></i>
-                            </div>
-                            <div class="fact-content">
-                                <h2><span class="count">3</span>k</h2>
-                                <span>Our Clients</span>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endforeach;
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>
@@ -576,8 +551,8 @@ if (isset($kufaDataBase)) {
                 <div class="col-lg-6">
                     <div class="contact-form">
                         <form action="./dashboard/inboxResponse.php" method="POST">
-                            <input type="text" placeholder="your name *" name="name">
-                            <input type="email" placeholder="your email *" name="email">
+                            <input type="text" placeholder="your name *" name="name" required>
+                            <input type="email" placeholder="your email *" name="email" required>
                             <textarea name="message" id="message" placeholder="your message *"></textarea>
                             <button class="btn" type="submit">Send Message</button>
                         </form>

@@ -1,7 +1,6 @@
 <?php
 require_once 'inc/header.php';
 $socialView = "SELECT  * FROM `socials`";
-$socialData = "SELECT COUNT(*) FROM `socials`";
 if (isset($kufaDataBase)) {
     $socialDataBaseQuery = $kufaDataBase->Query($socialView);
     $kufaDataBase->close();

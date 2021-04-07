@@ -145,7 +145,15 @@ $linkEnd = end($linkExplode);
                 <span class="menu-item-label">Services</span>
                 <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
             </div><!-- menu-item -->
-        </a><!-- sl-menu-link -->
+        </a>
+        <a href="counter.php" class="sl-menu-link <?= $linkEnd === 'counter.php' ? 'active' : '' ?>">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon fas fa-sort-amount-up-alt tx-24"></i>
+                <span class="menu-item-label">Counter</span>
+                <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
+            </div><!-- menu-item -->
+        </a>
+        <!-- sl-menu-link -->
         <!--        <ul class="sl-menu-sub nav flex-column">-->
         <!--            <li class="nav-item"><a href="accordion.php" class="nav-link">Accordion</a></li>-->
         <!--            <li class="nav-item"><a href="alerts.php" class="nav-link">Alerts</a></li>-->

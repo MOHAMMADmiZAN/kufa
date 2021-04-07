@@ -1,7 +1,6 @@
 <?php
 require_once 'inc/header.php';
 $servicesView = "SELECT  * FROM `services`";
-$servicesData = "SELECT COUNT(*) FROM `services`";
 if (isset($kufaDataBase)) {
     $servicesDataBaseQuery = $kufaDataBase->Query($servicesView);
     $kufaDataBase->close();
