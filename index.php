@@ -9,6 +9,7 @@ if (isset($kufaDataBase)) {
     $countQuery = $kufaDataBase->Query($counters);
     $kufaDataBase->close();
 }
+
 ?>
 
 
