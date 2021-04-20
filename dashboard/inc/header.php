@@ -153,6 +153,13 @@ $linkEnd = end($linkExplode);
                 <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
             </div><!-- menu-item -->
         </a>
+        <a href="brand.php" class="sl-menu-link <?= $linkEnd === 'brand.php' ? 'active' : '' ?>">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon fab fa-bandcamp tx-24"></i>
+                <span class="menu-item-label">Brand</span>
+                <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
+            </div><!-- menu-item -->
+        </a>
         <!-- sl-menu-link -->
         <!--        <ul class="sl-menu-sub nav flex-column">-->
         <!--            <li class="nav-item"><a href="accordion.php" class="nav-link">Accordion</a></li>-->
