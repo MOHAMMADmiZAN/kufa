@@ -48,7 +48,8 @@ if (isset($kufaDataBase)) {
                                 foreach ($brandViewDataBaseQuery as $index => $brand): ?>
                                     <tr>
                                         <td><?= ++$index; ?></td>
-                                        <td><?= $brand['images'] ?></td>
+                                        <td><img src="upload/<?= $brand['images'] ?>" alt="<?= $brand['images'] ?>">
+                                        </td>
                                         <td><a href="#" class="btn btn-primary">Delete</a></td>
                                     </tr>
                                 <?php endforeach;

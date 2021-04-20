@@ -40,8 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 }
 
             }
-            $newName = random_int(0, 100000000).'~' . $sessionId . '.' . $imgExtension;
-            echo $newName;
+            $newName = random_int(0, 100000000) . '~' . $sessionId . '.' . $imgExtension;
             $newLoc = 'upload/' . $newName;
             move_uploaded_file($img['tmp_name'], $newLoc);
             $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone',`image`='$newName' WHERE `id`='$sessionId'";
