@@ -3,10 +3,12 @@ require_once 'dashboard/inc/dbconfig.php';
 $social = "SELECT * FROM `socials` WHERE `status` LIKE 1 LIMIT 5";
 $services = "SELECT * FROM `services` WHERE `status` LIKE 1 LIMIT 6";
 $counters = "SELECT * FROM `counters`  LIMIT 4 ";
+$brands = "SELECT * FROM `brands`";
 if (isset($kufaDataBase)) {
     $socialQuery = $kufaDataBase->Query($social);
     $servicesQuery = $kufaDataBase->Query($services);
     $countQuery = $kufaDataBase->Query($counters);
+    $brandQuery = $kufaDataBase->Query($brands);
     $kufaDataBase->close();
 }
 
@@ -487,36 +489,17 @@ if (isset($kufaDataBase)) {
     <div class="barnd-area pt-100 pb-100">
         <div class="container">
             <div class="row brand-active h-fix">
-                <div class="col-xl-2">
-                    <div class="single-brand">
-                        <img src="assets/img/brand/brand_img01.png" alt="img">
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="single-brand">
-                        <img src="assets/img/brand/brand_img02.png" alt="img">
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="single-brand">
-                        <img src="assets/img/brand/brand_img03.png" alt="img">
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="single-brand">
-                        <img src="assets/img/brand/brand_img04.png" alt="img">
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="single-brand">
-                        <img src="assets/img/brand/brand_img05.png" alt="img">
-                    </div>
-                </div>
-                <div class="col-xl-2">
-                    <div class="single-brand">
-                        <img src="assets/img/brand/brand_img03.png" alt="img">
-                    </div>
-                </div>
+                <?php
+                if (isset($brandQuery)):
+                    foreach ($brandQuery as $index => $brand):
+                        ?>
+                        <div class="col-xl-2">
+                            <div class="single-brand">
+                                <img src="dashboard/upload/<?= $brand['images'] ?>" alt="img">
+                            </div>
+                        </div>
+                    <?php endforeach; endif; ?>
+
             </div>
         </div>
     </div>
