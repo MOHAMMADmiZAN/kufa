@@ -9,8 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG", "webp"];
     if ($imgName !== '') {
         if (in_array($imgExtension, $supportedExtension, true)) {
-            $newName = random_int(0, 1000) . '~' . $imgName;
-            $newLoc = 'upload/' . $newName;
+            $newName = random_int(0, 100000) . '~~~' . $imgName;
+            $newLoc = 'upload/brand/';
+            mkdir($newLoc, 0777, true);
+            $newLoc ='upload/brand/'.$newName;
             move_uploaded_file($img['tmp_name'], $newLoc);
             $imageInsert = " INSERT INTO `brands` (`images`) VALUES ('$newName')";
             if (isset($kufaDataBase)){
