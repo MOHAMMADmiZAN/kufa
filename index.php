@@ -495,7 +495,7 @@ if (isset($kufaDataBase)) {
                         ?>
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="dashboard/upload/<?= $brand['images'] ?>" alt="img">
+                                <img src="dashboard/upload/brand/<?= $brand['images'] ?>" alt="img">
                             </div>
                         </div>
                     <?php endforeach; endif; ?>

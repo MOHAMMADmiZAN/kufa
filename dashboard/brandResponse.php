@@ -11,14 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if (in_array($imgExtension, $supportedExtension, true)) {
             $newName = random_int(0, 100000) . '~~~' . $imgName;
             $newLoc = 'upload/brand/';
-            mkdir($newLoc, 0777, true);
-            $newLoc ='upload/brand/'.$newName;
-            move_uploaded_file($img['tmp_name'], $newLoc);
+            if (!file_exists($newLoc)) {
+                mkdir($newLoc, 0777, true);
+            }
+            $updatedNewLoc = 'upload/brand/' . $newName;
+            move_uploaded_file($img['tmp_name'], $updatedNewLoc);
             $imageInsert = " INSERT INTO `brands` (`images`) VALUES ('$newName')";
-            if (isset($kufaDataBase)){
+            if (isset($kufaDataBase)) {
                 $imageInsertQuery = $kufaDataBase->query($imageInsert);
                 $kufaDataBase->close();
-                if (isset($imageInsertQuery)){
+                if (isset($imageInsertQuery)) {
                     header("Location:brand.php");
                 }
             }
