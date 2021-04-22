@@ -14,6 +14,14 @@
             }, 500)
         }
     )
+    $('.brandDelete').click(
+        function () {
+            let id = $(this).attr('data-id');
+            setTimeout(function () {
+                window.location.href = "brandDelete.php?userId=" + id;
+            }, 500)
+        }
+    )
     $('.recoverUser').click(
         function () {
             let id = $(this).attr('data-id');
