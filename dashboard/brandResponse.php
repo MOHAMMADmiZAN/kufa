@@ -1,8 +1,9 @@
 <?php
 require_once 'inc/dbconfig.php';
+require_once 'inc/session.php';
 // random string //
 function random_str(
-    int $length = 64,
+    int $length = 5,
     string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ): string
 {
@@ -18,7 +19,6 @@ function random_str(
 }
 
 //
-
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $img = $_FILES['image'];
     $imgName = $img['name'];
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG", "webp"];
     if ($imgName !== '') {
         if (in_array($imgExtension, $supportedExtension, true)) {
-            $newName = random_str(20) . $imgName;
+            $newName = random_str(25) . '.' . 'Sponsors' . '.' . $imgExtension;
             $newLoc = 'upload/brand/';
             if (!file_exists($newLoc)) {
                 mkdir($newLoc, 0777, true);
@@ -42,9 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 if (isset($imageInsertQuery)) {
                     header("Location:brand.php");
                 }
+            } else {
+                echo "dataBase Error";
             }
 
+        } else {
+            $_SESSION["supportedExtension"] = 'PLEASE PROVIDE VALID IMAGE !!';
+            header('Location:brand.php');
         }
+    } else {
+        $_SESSION["imgInsert"] = 'PLEASE SELECT IMAGE !!';
+        header('Location:brand.php');
+
     }
 
 } else {

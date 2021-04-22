@@ -33,10 +33,10 @@ if (isset($kufaDataBase)) {
     <div class="sl-pagebody">
         <div class="row">
             <div class="col-lg-6">
-                <div class="card bg-secondary">
+                <div class="card bg-secondary b-r">
                     <div class="card-body p-3">
                         <h1 class="alert-primary b-r text-center p-2">Brand Logos</h1>
-                        <table class="table table-primary table-striped table-bordered">
+                        <table class="table table-primary table-striped table-bordered b-r">
 
                             <tr>
                                 <th>SL</th>
@@ -67,9 +67,21 @@ if (isset($kufaDataBase)) {
 
             </div>
             <div class="col-lg-5">
-                <div class="card  bg-secondary ">
+                <div class="card  bg-secondary b-r ">
                     <div class="card-body w-100 p-2">
                         <form action="brandResponse.php" method="POST" enctype="multipart/form-data">
+                            <?php if (isset($_SESSION["imgInsert"])): ?>
+                                <div class="alert alert-danger text-center b-r">
+                                    <?php echo $_SESSION["imgInsert"];
+                                    unset($_SESSION["imgInsert"]); ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (isset($_SESSION["supportedExtension"])): ?>
+                                <div class="alert alert-danger text-center b-r">
+                                    <?php echo $_SESSION["supportedExtension"];
+                                    unset($_SESSION["supportedExtension"]); ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="form-group">
                                 <label for="image" class="font-black">Image Upload</label>
                                 <input type="file" id="image" class="form-control" name="image">
