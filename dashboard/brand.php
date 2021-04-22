@@ -42,6 +42,7 @@ if (isset($kufaDataBase)) {
                                 <th>SL</th>
                                 <th>Brand</th>
                                 <th>Action</th>
+                                <th>Action</th>
                             </tr>
                             <?php
                             if (isset($brandViewDataBaseQuery)):
@@ -53,6 +54,8 @@ if (isset($kufaDataBase)) {
                                         </td>
                                         <td><a class=" btn btn-warning b-r brandDelete"
                                                data-id="<?= $brand['id'] ?>">Delete</a></td>
+                                        <td><a href="brandDelete.php?userId=<?= $brand['id'] ?>"
+                                               class="btn btn-danger b-r">Delete</a></td>
                                     </tr>
                                 <?php endforeach;
                             endif;
