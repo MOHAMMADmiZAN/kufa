@@ -1,5 +1,24 @@
 <?php
 require_once 'inc/dbconfig.php';
+// random string //
+function random_str(
+    int $length = 64,
+    string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+): string
+{
+    if ($length < 1) {
+        throw new \RangeException("Length must be a positive integer");
+    }
+    $pieces = [];
+    $max = mb_strlen($keyspace, '8bit') - 1;
+    for ($i = 0; $i < $length; ++$i) {
+        $pieces [] = $keyspace[random_int(0, $max)];
+    }
+    return implode('', $pieces);
+}
+
+//
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $img = $_FILES['image'];
     $imgName = $img['name'];
@@ -9,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG", "webp"];
     if ($imgName !== '') {
         if (in_array($imgExtension, $supportedExtension, true)) {
-            $newName = random_int(0, 100000) . '~~~' . $imgName;
+            $newName = random_str(20) . $imgName;
             $newLoc = 'upload/brand/';
             if (!file_exists($newLoc)) {
                 mkdir($newLoc, 0777, true);
