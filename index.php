@@ -457,8 +457,9 @@ if (isset($kufaDataBase)) {
                                 ?>
                                 <div class="single-testimonial text-center">
                                     <div class="testi-avatar">
-                                        <img src="dashboard/upload/feedback/<?= $feedback['image']?>"
-                                             alt="<?= $feedback['image'] ?>">
+                                        <img src="dashboard/upload/feedback/<?= $feedback['image'] ?>"
+                                             alt="<?= $feedback['image'] ?>" width="86px" height="86px"
+                                             style="border-radius:50%;">
                                     </div>
                                     <div class="testi-content">
                                         <h4><span>“</span> <?= $feedback['feedback'] ?> <span>”</span></h4>
