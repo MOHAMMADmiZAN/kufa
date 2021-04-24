@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $imgSize = $img['size'];
     $imgExplode = explode(".", $imgName);
     $imgExtension = end($imgExplode);
-    $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG", "webp"];
+    $supportedExtension = ["jpg", "jpeg", "png", "svg", "PNG", "JPG", "JPEG", "webp"];
     if ($imgName !== '') {
         if (in_array($imgExtension, $supportedExtension, true)) {
             $newName = random_str(25) . '.' . 'Sponsors' . '.' . $imgExtension;
