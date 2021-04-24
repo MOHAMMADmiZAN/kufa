@@ -4,11 +4,13 @@ $social = "SELECT * FROM `socials` WHERE `status` LIKE 1 LIMIT 5";
 $services = "SELECT * FROM `services` WHERE `status` LIKE 1 LIMIT 6";
 $counters = "SELECT * FROM `counters`  LIMIT 4 ";
 $brands = "SELECT * FROM `brands`";
+$feedback = "SELECT * FROM `testimonials`";
 if (isset($kufaDataBase)) {
     $socialQuery = $kufaDataBase->Query($social);
     $servicesQuery = $kufaDataBase->Query($services);
     $countQuery = $kufaDataBase->Query($counters);
     $brandQuery = $kufaDataBase->Query($brands);
+    $feedbackQuery = $kufaDataBase->Query($feedback);
     $kufaDataBase->close();
 }
 
@@ -450,35 +452,27 @@ if (isset($kufaDataBase)) {
             <div class="row justify-content-center">
                 <div class="col-xl-9 col-lg-10">
                     <div class="testimonial-active">
+                        <?php if (isset($feedbackQuery)): foreach ($feedbackQuery
+
+                        as $index => $feedback): ?>
                         <div class="single-testimonial text-center">
                             <div class="testi-avatar">
-                                <img src="assets/img/images/testi_avatar.png" alt="img">
+                                <img src="dashboard/upload/feedback/<?= $feedback['image'] ?>"
+                                     alt="<?= $feedback['image'] ?>">
                             </div>
                             <div class="testi-content">
-                                <h4><span>“</span> An event is a message sent by an object to signal the occur rence of
-                                    an action. The action can causd user interaction such as a button click, or it can
-                                    result <span>”</span></h4>
+                                <h4><span>“</span>
+                                    <?= $feedback['feedback'] ?>
+                                    <span>”</span></h4>
                                 <div class="testi-avatar-info">
-                                    <h5>tonoy jakson</h5>
-                                    <span>head of idea</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-testimonial text-center">
-                            <div class="testi-avatar">
-                                <img src="assets/img/images/testi_avatar.png" alt="img">
-                            </div>
-                            <div class="testi-content">
-                                <h4><span>“</span> An event is a message sent by an object to signal the occur rence of
-                                    an action. The action can causd user interaction such as a button click, or it can
-                                    result <span>”</span></h4>
-                                <div class="testi-avatar-info">
-                                    <h5>tonoy jakson</h5>
-                                    <span>head of idea</span>
+                                    <h5><?= $feedback['name'] ?></h5>
+                                    <span><?= $feedback['designation'] ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach;
+                    endif; ?>
                 </div>
             </div>
         </div>

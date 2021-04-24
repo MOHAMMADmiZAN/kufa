@@ -59,6 +59,7 @@ $linkEnd = end($linkExplode);
     <link href="../assets/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="../assets/lib/Ionicons/css/ionicons.css" rel="stylesheet">
     <link href="../assets/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 
 
     <!-- Starlight CSS -->
@@ -157,6 +158,13 @@ $linkEnd = end($linkExplode);
             <div class="sl-menu-item">
                 <i class="menu-item-icon fab fa-bandcamp tx-24"></i>
                 <span class="menu-item-label">Brand</span>
+                <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
+            </div><!-- menu-item -->
+        </a>
+        <a href="testimonial.php" class="sl-menu-link <?= $linkEnd === 'testimonial.php' ? 'active' : '' ?>">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon fas fa-comments-dollar tx-24"></i>
+                <span class="menu-item-label">Testimonial</span>
                 <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
             </div><!-- menu-item -->
         </a>

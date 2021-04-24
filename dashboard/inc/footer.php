@@ -3,6 +3,7 @@
 <script src="../assets/lib/bootstrap/bootstrap.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="../assets/js/starlight.js"></script>
 
 <script>
@@ -64,6 +65,11 @@
             }, 500)
         }
     )
+    $(document).ready(function () {
+        $('#myData').DataTable();
+
+    });
+
 
 </script>
 
