@@ -452,31 +452,29 @@ if (isset($kufaDataBase)) {
             <div class="row justify-content-center">
                 <div class="col-xl-9 col-lg-10">
                     <div class="testimonial-active">
-                        <?php if (isset($feedbackQuery)): foreach ($feedbackQuery
-
-                        as $index => $feedback): ?>
-                        <div class="single-testimonial text-center">
-                            <div class="testi-avatar">
-                                <img src="dashboard/upload/feedback/<?= $feedback['image'] ?>"
-                                     alt="<?= $feedback['image'] ?>">
-                            </div>
-                            <div class="testi-content">
-                                <h4><span>“</span>
-                                    <?= $feedback['feedback'] ?>
-                                    <span>”</span></h4>
-                                <div class="testi-avatar-info">
-                                    <h5><?= $feedback['name'] ?></h5>
-                                    <span><?= $feedback['designation'] ?></span>
+                        <?php if (isset($feedbackQuery)):
+                            foreach ($feedbackQuery as $index => $feedback):
+                                ?>
+                                <div class="single-testimonial text-center">
+                                    <div class="testi-avatar">
+                                        <img src="dashboard/upload/feedback/<?= $feedback['image']?>"
+                                             alt="<?= $feedback['image'] ?>">
+                                    </div>
+                                    <div class="testi-content">
+                                        <h4><span>“</span> <?= $feedback['feedback'] ?> <span>”</span></h4>
+                                        <div class="testi-avatar-info">
+                                            <h5> <?= $feedback['name'] ?></h5>
+                                            <span> <?= $feedback['designation'] ?></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            <?php endforeach; endif; ?>
                     </div>
-                    <?php endforeach;
-                    endif; ?>
                 </div>
             </div>
         </div>
     </section>
+    <!-- testimonial-area-end -->
     <!-- testimonial-area-end -->
 
     <!-- brand-area -->
