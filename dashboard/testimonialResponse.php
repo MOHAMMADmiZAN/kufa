@@ -4,7 +4,7 @@ require_once 'inc/session.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $designation = $_POST['designation'];
-    $feedback = $_POST['feedback'];
+    $feedback = trim($_POST['feedback'],' ');
     $img = $_FILES['image'];
     $imgName = $img['name'];
     $imgSize = $img['size'];
@@ -13,13 +13,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "PNG", "JPG", "JPEG", "webp"];
     if ($imgName !== '' && isset($name, $designation, $feedback)) {
         if (in_array($imgExtension, $supportedExtension, true)) {
-            $newName = 'client'.'~'.$imgName;
+            $newName = 'client' . '~' . $imgName;
             $newLoc = 'upload/feedback/';
             if (!file_exists($newLoc)) {
                 mkdir($newLoc, 0777, true);
             }
             $updatedNewLoc = 'upload/feedback/' . $newName;
             move_uploaded_file($img['tmp_name'], $updatedNewLoc);
+            $testimonialsTable = "CREATE TABLE IF NOT EXISTS `kufa`.`testimonials` ( `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `designation` VARCHAR(255) NOT NULL , `feedback` TEXT NOT NULL , `image` varchar(255) NOT NULL,PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+            if (isset($kufaDataBase, $testimonialsTable)) {
+                $testimonialsTableQuery = $kufaDataBase->query($testimonialsTable);
+            } else {
+                echo "table error";
+            }
             $FeedBackInsert = " INSERT INTO `testimonials` (`name`,`designation`,`feedback`,`image`) VALUES ('$name','$designation','$feedback','$newName')";
             if (isset($kufaDataBase)) {
                 $FeedBackInsertQuery = $kufaDataBase->query($FeedBackInsert);

@@ -12,7 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $message = $_POST['message'];
     $filterMsg = xssCleaner($message);
-    $inboxInsert = "INSERT INTO `inbox`(`name`,`email`,`message`) VALUES('$name','$email','$filterMsg')";
+    $inboxTable = "CREATE TABLE IF NOT EXISTS `kufa`.`inbox` ( `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `messages` TEXT NOT NULL ,`readStatus` INT NOT NULL DEFAULT '1',`tashStatus` INT NOT NULL DEFAULT '1', PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    if (isset($kufaDataBase, $inboxTable)) {
+        $inboxTableQuery = $kufaDataBase->query($inboxTable);
+    } else {
+        echo "table error";
+    }
+    
+    $inboxInsert = "INSERT INTO `inbox` (`name`,`email`,`messages`) VALUES ('$name','$email','$filterMsg')";
     if (isset($kufaDataBase)) {
         $inboxInsertQuery = $kufaDataBase->query($inboxInsert);
         if (isset($inboxInsertQuery)) {

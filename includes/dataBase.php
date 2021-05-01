@@ -2,7 +2,7 @@
 const HOST = 'localhost';
 const USER = 'root';
 const PASSWORD = '';
-const DATABASE = 'registerform';
+const DATABASE = 'kufa';
 /*define('HOST', 'localhost');
 define('USER', 'root');
 define('PASSWORD', '');

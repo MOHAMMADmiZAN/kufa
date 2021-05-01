@@ -35,6 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             }
             $updatedNewLoc = 'upload/brand/' . $newName;
             move_uploaded_file($img['tmp_name'], $updatedNewLoc);
+            $brandsTable = "CREATE TABLE IF NOT EXISTS `kufa`.`brands` ( `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `images` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+            if (isset($kufaDataBase, $brandsTable)) {
+                $brandsTableQuery = $kufaDataBase->query($brandsTable);
+            } else {
+                echo "table error";
+            }
             $imageInsert = " INSERT INTO `brands` (`images`) VALUES ('$newName')";
             if (isset($kufaDataBase)) {
                 $imageInsertQuery = $kufaDataBase->query($imageInsert);
