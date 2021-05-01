@@ -84,10 +84,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } else {
         $gender = $_POST["gender"];
     }
+    $usersTable = "CREATE TABLE IF NOT EXISTS `kufa`.`users` ( `id` INT UNSIGNED AUTO_INCREMENT NOT NULL , `fullName` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL ,`cell` VARCHAR(255) NOT NULL ,`Gender` VARCHAR(255) NOT NULL,`status` int(11) NOT NULL DEFAULT 1,`role` int(11) NOT NULL DEFAULT 1 COMMENT '1=user 2=employee 3= admin',`image` varchar(255) NOT NULL DEFAULT 'default.png', UNIQUE KEY `email` (`email`), PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+
     if (!isset($getName, $getPassword, $getConfirmPassword, $getCell, $gender, $getEmail)) {
         echo "::::DATABASE::::";
     } else {
+        // table create . if not exit //
+        if (isset($dataBase, $usersTable)) {
+            $usersTableQuery = $dataBase->query($usersTable);
+        } else {
+            echo "table error";
+        }
         ///duplicate check query ///
+
         $duplicateCheck = "SELECT COUNT(*) as duplicates FROM `users` WHERE email = '$email' ";
         if (isset($dataBase)) {
 //            $duplicateCheckQuery = mysqli_query($dataBase, $duplicateCheck);
@@ -102,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                         echo "<p style='color: red;'>EMAIL ALREADY FOUND!</p>";
                     } else {
                         /// database insert query //
-                        $insert = "INSERT INTO users(fullName, email, password,cellNumber, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
+                        $insert = "INSERT INTO users(fullName, email, password,cell, Gender) VALUES ('$getName','$getEmail','$getPassword','$getCell','$gender')";
                         if (isset($insert)) {
 //                     $dataQuery = mysqli_query($dataBase, $insert);
                             $dataQuery = $dataBase->query($insert);
