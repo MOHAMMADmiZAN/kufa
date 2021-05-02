@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $imgExtension = end($imgExplode);
     $supportedExtension = ["jpg", "jpeg", "png", "svg", "ico", "PNG", "JPG", "JPEG", "webp"];
     if (($imgName === '')) {
-        $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone' WHERE `id`='$sessionId'";
+        $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cell`='$phone' WHERE `id`='$sessionId'";
         if (isset($dataBase)) {
             $editProfileQuery = $dataBase->query($editProfile);
             $dataBase->close();
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $newName = random_int(0, 100000000) . '~' . $sessionId . '.' . $imgExtension;
             $newLoc = 'upload/' . $newName;
             move_uploaded_file($img['tmp_name'], $newLoc);
-            $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cellNumber`='$phone',`image`='$newName' WHERE `id`='$sessionId'";
+            $editProfile = " UPDATE `users` SET `fullName`='$name',`email`='$email',`cell`='$phone',`image`='$newName' WHERE `id`='$sessionId'";
             if (isset($dataBase)) {
                 $editProfileQuery = $dataBase->query($editProfile);
                 $dataBase->close();
