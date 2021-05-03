@@ -1,7 +1,7 @@
 <?php
 require_once 'inc/dbconfig.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $categoryName = $_POST['c-name'];
+    $categoryName = strtoupper($_POST['c-name']);
 
     $categoryInsert = "INSERT INTO `categories`(`c_name`) values ('$categoryName')";
     if (isset($kufaDataBase, $categoryInsert)) {

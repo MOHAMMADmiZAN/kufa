@@ -5,12 +5,14 @@ $services = "SELECT * FROM `services` WHERE `status` LIKE 1 LIMIT 6";
 $counters = "SELECT * FROM `counters`  LIMIT 4 ";
 $brands = "SELECT * FROM `brands`";
 $feedback = "SELECT * FROM `testimonials`";
+$portfolio = "SELECT * FROM `portfolios` INNER JOIN `categories` ON portfolios.categories_id = categories.id";
 if (isset($kufaDataBase)) {
     $socialQuery = $kufaDataBase->Query($social);
     $servicesQuery = $kufaDataBase->Query($services);
     $countQuery = $kufaDataBase->Query($counters);
     $brandQuery = $kufaDataBase->Query($brands);
     $feedbackQuery = $kufaDataBase->Query($feedback);
+    $portfolioQuery = $kufaDataBase->Query($portfolio);
     $kufaDataBase->close();
 }
 
@@ -332,78 +334,22 @@ if (isset($kufaDataBase)) {
                 </div>
             </div>
             <div class="row">
+                <?php if(isset($portfolioQuery)):
+                foreach($portfolioQuery as $index => $portfolio):
+                ?>
                 <div class="col-lg-4 col-md-6 pitem">
                     <div class="speaker-box">
                         <div class="speaker-thumb">
-                            <img src="assets/img/images/1.jpg" alt="img">
+                            <img src="dashboard/upload/portfolio/thumbnail/<?=$portfolio['thumbnail']?>" alt="<?=$portfolio['thumbnail']?>">
                         </div>
                         <div class="speaker-overlay">
-                            <span>Design</span>
-                            <h4><a href="portfolio-single.php">Hamble Triangle</a></h4>
+                            <span><?=$portfolio['c_name']?></span>
+                            <h4><a href="portfolio-single.php"><?=$portfolio['name']?></a></h4>
                             <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pitem">
-                    <div class="speaker-box">
-                        <div class="speaker-thumb">
-                            <img src="assets/img/images/2.jpg" alt="img">
-                        </div>
-                        <div class="speaker-overlay">
-                            <span>Video</span>
-                            <h4><a href="portfolio-single.php">Dark Beauty</a></h4>
-                            <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pitem">
-                    <div class="speaker-box">
-                        <div class="speaker-thumb">
-                            <img src="assets/img/images/3.jpg" alt="img">
-                        </div>
-                        <div class="speaker-overlay">
-                            <span>Audio</span>
-                            <h4><a href="portfolio-single.php">Gilroy Limbo.</a></h4>
-                            <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pitem">
-                    <div class="speaker-box">
-                        <div class="speaker-thumb">
-                            <img src="assets/img/images/4.jpg" alt="img">
-                        </div>
-                        <div class="speaker-overlay">
-                            <span>Design</span>
-                            <h4><a href="portfolio-single.php">Ipsum which</a></h4>
-                            <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pitem">
-                    <div class="speaker-box">
-                        <div class="speaker-thumb">
-                            <img src="assets/img/images/5.jpg" alt="img">
-                        </div>
-                        <div class="speaker-overlay">
-                            <span>Creative</span>
-                            <h4><a href="portfolio-single.php">Eiusmod tempor</a></h4>
-                            <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pitem">
-                    <div class="speaker-box">
-                        <div class="speaker-thumb">
-                            <img src="assets/img/images/6.jpg" alt="img">
-                        </div>
-                        <div class="speaker-overlay">
-                            <span>UX/UI</span>
-                            <h4><a href="portfolio-single.php">again there</a></h4>
-                            <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; endif; ?>
             </div>
         </div>
     </section>

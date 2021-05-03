@@ -1,16 +1,16 @@
 <?php
 require_once 'inc/dbconfig.php';
-function xssCleaner($inputStr)
+function xssCleaner($inputString)
 {
-    $returnStr = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputStr);
-    $returnStr = str_ireplace('%3Cscript', '', $returnStr);
-    return $returnStr;
+    $returnString = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputString);
+    $returnString = str_ireplace('%3Cscript', '', $returnString);
+    return $returnString;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
+    $name = strtoupper($_POST['name']);
     $slug = strtolower(str_replace(' ','-',$_POST['name']));
     $categories = $_POST['categories'];
-    $text = xssCleaner($_POST['text']);
+    $text = $kufaDataBase->real_escape_string(xssCleaner($_POST['text']));
     $thumbnail = $_FILES['thumbnail'];
     $feature = $_FILES['feature'];
     $thumbnailName = $thumbnail['name'];
