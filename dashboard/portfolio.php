@@ -58,7 +58,7 @@ if (isset($kufaDataBase)) {
                                         <td><img src="upload/portfolio/feature/<?= $portfolio['feature'] ?>"
                                                  alt="<?= $portfolio['feature'] ?>" width="80" height="80">
                                         </td>
-                                        <td><a href="" class="btn btn-warning">Delete</a></td>
+                                        <td><a href="portfolioDelete.php?userId=<?=$portfolio['portfolio_ID']?>" class="btn btn-warning">Delete</a></td>
                                     </tr>
                                 <?php endforeach; endif; ?>
 
@@ -83,7 +83,7 @@ if (isset($kufaDataBase)) {
                                     <?php if (isset($categoriesQuery)):
                                         foreach ($categoriesQuery as $index => $category):
                                             ?>
-                                            <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                                            <option value="<?= $category['id'] ?>"><?= $category['c_name'] ?></option>
                                         <?php endforeach; endif; ?>
                                 </select>
                                 <label for="text" class="fb">Text:</label>

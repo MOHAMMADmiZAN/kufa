@@ -8,6 +8,7 @@ function xssCleaner($inputStr)
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
+    $slug = strtolower(str_replace(' ','-',$_POST['name']));
     $categories = $_POST['categories'];
     $text = xssCleaner($_POST['text']);
     $thumbnail = $_FILES['thumbnail'];
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     mkdir($featureNewLoc, 0777, true);
                 }
                 if (isset($kufaDataBase)) {
-                    $portfolioInsert = "INSERT INTO `portfolios`( `name`, `categories_id`,`body`,thumbnail,feature ) VALUES ('$name','$categories','$text','$thumbnailName','$featureName')";
+                    $portfolioInsert = "INSERT INTO `portfolios`( `name`, `categories_id`,`body`,thumbnail,feature,`slug` ) VALUES ('$name','$categories','$text','$thumbnailName','$featureName','$slug')";
                     $portfolioInsertQuery = $kufaDataBase->Query($portfolioInsert);
                     if ($portfolioInsertQuery === TRUE) {
                         $lastInsertId = $kufaDataBase->insert_id;
