@@ -50,10 +50,14 @@ if (isset($kufaDataBase)) {
                                     <tr>
                                         <td><?= ++$index ?></td>
                                         <td><?= $portfolio['name'] ?></td>
-                                        <td><?= $portfolio['category']?></td>
-                                        <td><?= $portfolio['body']?></td>
-                                        <td>thumbnail</td>
-                                        <td>feature</td>
+                                        <td><?= $portfolio['categories_id'] ?></td>
+                                        <td><?= $portfolio['body'] ?></td>
+                                        <td><img src="upload/portfolio/thumbnail/<?= $portfolio['thumbnail'] ?>"
+                                                 alt="<?= $portfolio['thumbnail'] ?>" width="80" height="80">
+                                        </td>
+                                        <td><img src="upload/portfolio/feature/<?= $portfolio['feature'] ?>"
+                                                 alt="<?= $portfolio['feature'] ?>" width="80" height="80">
+                                        </td>
                                         <td><a href="" class="btn btn-warning">Delete</a></td>
                                     </tr>
                                 <?php endforeach; endif; ?>

@@ -1,9 +1,15 @@
 <?php
 require_once 'inc/dbconfig.php';
+function xssCleaner($inputStr)
+{
+    $returnStr = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputStr);
+    $returnStr = str_ireplace('%3Cscript', '', $returnStr);
+    return $returnStr;
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $categories = $_POST['categories'];
-    $text = $_POST['text'];
+    $text = xssCleaner($_POST['text']);
     $thumbnail = $_FILES['thumbnail'];
     $feature = $_FILES['feature'];
     $thumbnailName = $thumbnail['name'];
@@ -25,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     mkdir($featureNewLoc, 0777, true);
                 }
                 if (isset($kufaDataBase)) {
-                    $portfolioInsert = "INSERT INTO `portfolios`( `name`, `category`,`body`,`thumbnail`,`feature` ) VALUES ('$name','$categories','$text','$thumbnailName','$featureName')";
+                    $portfolioInsert = "INSERT INTO `portfolios`( `name`, `categories_id`,`body`,thumbnail,feature ) VALUES ('$name','$categories','$text','$thumbnailName','$featureName')";
                     $portfolioInsertQuery = $kufaDataBase->Query($portfolioInsert);
                     if ($portfolioInsertQuery === TRUE) {
                         $lastInsertId = $kufaDataBase->insert_id;
