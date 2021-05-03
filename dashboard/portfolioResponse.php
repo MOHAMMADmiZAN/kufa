@@ -6,6 +6,10 @@ function xssCleaner($inputString)
     $returnString = str_ireplace('%3Cscript', '', $returnString);
     return $returnString;
 }
+function setTimeout($fn, $timeout){
+    sleep(($timeout/1000));
+     return $fn();
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = strtoupper($_POST['name']);
     $slug = strtolower(str_replace(' ','-',$_POST['name']));
@@ -61,6 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
 
+    }
+    else{
+
+
+        $headerTimeout = function(){
+//            header('Location:portfolio.php');
+            echo "please back to the portfolio and fill up all input field ";
+        };
+        setTimeout($headerTimeout,3000);
     }
 
 
