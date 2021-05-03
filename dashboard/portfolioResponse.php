@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = strtoupper($_POST['name']);
     $slug = strtolower(str_replace(' ','-',$_POST['name']));
     $categories = $_POST['categories'];
+    /** @var $kufaDataBase */
     $text = $kufaDataBase->real_escape_string(xssCleaner($_POST['text']));
     $thumbnail = $_FILES['thumbnail'];
     $feature = $_FILES['feature'];
