@@ -86,8 +86,8 @@ if (isset($kufaDataBase)) {
                                             <option value="<?= $category['id'] ?>"><?= $category['c_name'] ?></option>
                                         <?php endforeach; endif; ?>
                                 </select>
-                                <label for="text" class="fb">Text:</label>
-                                <textarea name="text" id="text" cols="30" rows="10" class="form-control"></textarea>
+                                <label for="cktext" class="fb">Text:</label>
+                                <textarea name="text" id="cktext" cols="30" rows="10" class="form-control"></textarea>
                                 <label for="thumbnail" class="fb">Thumbnail:</label>
                                 <input type="file" class="form-control" id="thumbnail" placeholder="Upload Your Image"
                                        name="thumbnail">

@@ -4,6 +4,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
 <script src="../assets/js/starlight.js"></script>
 
 <script>
@@ -69,7 +70,11 @@
         $('#myData').DataTable();
 
     });
-
+    ClassicEditor
+        .create(document.querySelector('#cktext'))
+        .catch(error => {
+            console.error(error);
+        });
 
 </script>
 

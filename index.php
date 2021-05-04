@@ -1,60 +1,9 @@
 <?php
-require_once 'dashboard/inc/dbconfig.php';
-$social = "SELECT * FROM `socials` WHERE `status` LIKE 1 LIMIT 5";
-$services = "SELECT * FROM `services` WHERE `status` LIKE 1 LIMIT 6";
-$counters = "SELECT * FROM `counters`  LIMIT 4 ";
-$brands = "SELECT * FROM `brands`";
-$feedback = "SELECT * FROM `testimonials`";
-$portfolio = "SELECT * FROM `portfolios` INNER JOIN `categories` ON portfolios.categories_id = categories.id";
-if (isset($kufaDataBase)) {
-    $socialQuery = $kufaDataBase->Query($social);
-    $servicesQuery = $kufaDataBase->Query($services);
-    $countQuery = $kufaDataBase->Query($counters);
-    $brandQuery = $kufaDataBase->Query($brands);
-    $feedbackQuery = $kufaDataBase->Query($feedback);
-    $portfolioQuery = $kufaDataBase->Query($portfolio);
-    $kufaDataBase->close();
-}
+require_once 'includes/header.php';
 
 ?>
 
-
-<!doctype html>
-<html class="no-js" lang="en">
-
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kufa - Personal Portfolio HTML5 Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- CSS here -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/aos.css">
-    <link rel="stylesheet" href="assets/css/default.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <style>
-        .l-46 {
-            line-height: 46px;
-        }
-
-        .h-fix {
-            height: fit-content;
-        }
-    </style>
-</head>
-<body class="theme-bg">
+    <body class="theme-bg">
 
 <!-- preloader -->
 <div id="preloader">
@@ -159,7 +108,6 @@ if (isset($kufaDataBase)) {
     <!-- offcanvas-end -->
 </header>
 <!-- header-end -->
-
 <!-- main-area -->
 <main>
 
@@ -344,8 +292,8 @@ if (isset($kufaDataBase)) {
                         </div>
                         <div class="speaker-overlay">
                             <span><?=$portfolio['c_name']?></span>
-                            <h4><a href="portfolio-single.php"><?=$portfolio['name']?></a></h4>
-                            <a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
+                            <h4><a href="portfolio-single.php?slug=<?=$portfolio['slug']?>"><?=$portfolio['name']?></a></h4>
+                            <a href="portfolio-single.php?slug=<?=$portfolio['slug']?>" class="arrow-btn">More information <span></span></a>
                         </div>
                     </div>
                 </div>
@@ -489,41 +437,6 @@ if (isset($kufaDataBase)) {
 </main>
 <!-- main-area-end -->
 
-<!-- footer -->
-<footer>
-    <div class="copyright-wrap">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <div class="copyright-text text-center">
-                        <p>Copyright© <span>Kufa</span> | All Rights Reserved</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- footer-end -->
-
-
-<!-- JS here -->
-<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/one-page-nav-min.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/ajax-form.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/jquery.scrollUp.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
-</body>
-
-
-</html>
+<?php
+require_once 'includes/footer.php';
+?>

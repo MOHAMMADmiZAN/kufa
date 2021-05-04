@@ -1,11 +1,11 @@
 <?php
 require_once 'inc/dbconfig.php';
-function xssCleaner($inputString)
-{
-    $returnString = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputString);
-    $returnString = str_ireplace('%3Cscript', '', $returnString);
-    return $returnString;
-}
+//function xssCleaner($inputString)
+//{
+//    $returnString = str_replace(array('<', '>', "'", '"', ')', '('), array('&lt;', '&gt;', '&apos;', '&#x22;', '&#x29;', '&#x28;'), $inputString);
+//    $returnString = str_ireplace('%3Cscript', '', $returnString);
+//    return $returnString;
+//}
 function setTimeout($fn, $timeout){
     sleep(($timeout/1000));
      return $fn();
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $slug = strtolower(str_replace(' ','-',$_POST['name']));
     $categories = $_POST['categories'];
     /** @var $kufaDataBase */
-    $text = $kufaDataBase->real_escape_string(xssCleaner($_POST['text']));
+    $text = $kufaDataBase->real_escape_string($_POST['text']);
     $thumbnail = $_FILES['thumbnail'];
     $feature = $_FILES['feature'];
     $thumbnailName = $thumbnail['name'];
