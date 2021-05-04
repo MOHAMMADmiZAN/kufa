@@ -1,7 +1,7 @@
 <?php
 require_once 'inc/header.php';
 $categories = "SELECT * FROM `categories`";
-$portfolios = "SELECT * FROM `portfolios`";
+$portfolios = "SELECT * FROM `portfolios` INNER JOIN categories ON portfolios.categories_id = categories.id";
 if (isset($kufaDataBase)) {
     $categoriesQuery = $kufaDataBase->Query($categories);
     $portfoliosQuery = $kufaDataBase->Query($portfolios);
@@ -50,7 +50,7 @@ if (isset($kufaDataBase)) {
                                     <tr>
                                         <td><?= ++$index ?></td>
                                         <td><?= $portfolio['name'] ?></td>
-                                        <td><?= $portfolio['categories_id'] ?></td>
+                                        <td><?= $portfolio['c_name'] ?></td>
                                         <td><?= $portfolio['body'] ?></td>
                                         <td><img src="upload/portfolio/thumbnail/<?= $portfolio['thumbnail'] ?>"
                                                  alt="<?= $portfolio['thumbnail'] ?>" width="80" height="80">
