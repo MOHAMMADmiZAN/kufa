@@ -27,8 +27,9 @@ require_once 'includes/header.php';
                         <nav class="navbar navbar-expand-lg">
                             <a href="index.php" class="navbar-brand logo-sticky-none"><img
                                         src="assets/img/logo/logo.png" alt="Logo"></a>
-                            <a href="index.php" class="navbar-brand s-logo-none"><img src="assets/img/logo/s_logo.png"
-                                                                                      alt="Logo"></a>
+                            <a href="index.php" class="navbar-brand s-logo-none"><img
+                                        src="assets/img/logo/s_logo.png"
+                                        alt="Logo"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarNav">
                                 <span class="navbar-icon"></span>
@@ -170,70 +171,27 @@ require_once 'includes/header.php';
                         <h3>Education:</h3>
                     </div>
                     <!-- Education Item -->
-                    <div class="education">
-                        <div class="year">2020</div>
-                        <div class="line"></div>
-                        <div class="location">
-                            <span>PHD of Interaction Design &amp; Animation</span>
-                            <div class="progressWrapper">
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                         data-wow-duration="2s" role="progressbar" style="width: 65%;"
-                                         aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                    <?php if (isset($educationQuery)):
+                        foreach ($educationQuery as $index => $education):
+                            ?>
+                            <div class="education">
+                                <div class="year"><?= $education['year'] ?></div>
+                                <div class="line"></div>
+                                <div class="location">
+                                    <span><?= $education['degree'] ?></span>
+                                    <div class="progressWrapper">
+                                        <div class="progress">
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
+                                                 data-wow-duration="2s" role="progressbar"
+                                                 style="width: <?= $education['percents'] ?>%;"
+                                                 aria-valuenow="<?= $education['percents'] ?>" aria-valuemin="0"
+                                                 aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- End Education Item -->
-                    <!-- Education Item -->
-                    <div class="education">
-                        <div class="year">2016</div>
-                        <div class="line"></div>
-                        <div class="location">
-                            <span>Master of Database Administration</span>
-                            <div class="progressWrapper">
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                         data-wow-duration="2s" role="progressbar" style="width: 75%;"
-                                         aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Education Item -->
-                    <!-- Education Item -->
-                    <div class="education">
-                        <div class="year">2010</div>
-                        <div class="line"></div>
-                        <div class="location">
-                            <span>Bachelor of Computer Engineering</span>
-                            <div class="progressWrapper">
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                         data-wow-duration="2s" role="progressbar" style="width: 85%;"
-                                         aria-valuenow="85" aria-valuemin="0"
-                                         aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Education Item -->
-                    <!-- Education Item -->
-                    <div class="education">
-                        <div class="year">2005</div>
-                        <div class="line"></div>
-                        <div class="location">
-                            <span>Diploma of Computer</span>
-                            <div class="progressWrapper">
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s"
-                                         data-wow-duration="2s" role="progressbar" style="width: 90%;"
-                                         aria-valuenow="90" aria-valuemin="0"
-                                         aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endforeach; endif; ?>
+
                     <!-- End Education Item -->
                 </div>
             </div>
@@ -282,22 +240,26 @@ require_once 'includes/header.php';
                 </div>
             </div>
             <div class="row">
-                <?php if(isset($portfolioQuery)):
-                foreach($portfolioQuery as $index => $portfolio):
-                ?>
-                <div class="col-lg-4 col-md-6 pitem">
-                    <div class="speaker-box">
-                        <div class="speaker-thumb">
-                            <img src="dashboard/upload/portfolio/thumbnail/<?=$portfolio['thumbnail']?>" alt="<?=$portfolio['thumbnail']?>">
+                <?php if (isset($portfolioQuery)):
+                    foreach ($portfolioQuery as $index => $portfolio):
+                        ?>
+                        <div class="col-lg-4 col-md-6 pitem">
+                            <div class="speaker-box">
+                                <div class="speaker-thumb">
+                                    <img src="dashboard/upload/portfolio/thumbnail/<?= $portfolio['thumbnail'] ?>"
+                                         alt="<?= $portfolio['thumbnail'] ?>">
+                                </div>
+                                <div class="speaker-overlay">
+                                    <span><?= $portfolio['c_name'] ?></span>
+                                    <h4>
+                                        <a href="portfolio-single.php?slug=<?= $portfolio['slug'] ?>"><?= $portfolio['name'] ?></a>
+                                    </h4>
+                                    <a href="portfolio-single.php?slug=<?= $portfolio['slug'] ?>" class="arrow-btn">More
+                                        information <span></span></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="speaker-overlay">
-                            <span><?=$portfolio['c_name']?></span>
-                            <h4><a href="portfolio-single.php?slug=<?=$portfolio['slug']?>"><?=$portfolio['name']?></a></h4>
-                            <a href="portfolio-single.php?slug=<?=$portfolio['slug']?>" class="arrow-btn">More information <span></span></a>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; endif; ?>
+                    <?php endforeach; endif; ?>
             </div>
         </div>
     </section>
@@ -407,7 +369,8 @@ require_once 'includes/header.php';
                         <h5>OFFICE IN <span>NEW YORK</span></h5>
                         <div class="contact-list">
                             <ul>
-                                <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New
+                                <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22
+                                    New
                                     York
                                 </li>
                                 <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>

@@ -154,6 +154,13 @@ $linkEnd = end($linkExplode);
                 <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
             </div><!-- menu-item -->
         </a>
+        <a href="education.php" class="sl-menu-link <?= $linkEnd === 'education.php' ? 'active' : '' ?>">
+            <div class="sl-menu-item">
+                <i class="menu-item-icon fas fa-university tx-24"></i>
+                <span class="menu-item-label">Education</span>
+                <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
+            </div><!-- menu-item -->
+        </a>
         <a href="brand.php" class="sl-menu-link <?= $linkEnd === 'brand.php' ? 'active' : '' ?>">
             <div class="sl-menu-item">
                 <i class="menu-item-icon fab fa-bandcamp tx-24"></i>
@@ -175,9 +182,6 @@ $linkEnd = end($linkExplode);
                 <!--                <i class="menu-item-arrow fa fa-angle-down"></i>-->
             </div><!-- menu-item -->
         </a>
-
-
-
 
 
     </div><!-- sl-sideleft-menu -->

@@ -6,6 +6,7 @@ $counters = "SELECT * FROM `counters`  LIMIT 4 ";
 $brands = "SELECT * FROM `brands`";
 $feedback = "SELECT * FROM `testimonials`";
 $portfolio = "SELECT * FROM `portfolios` INNER JOIN `categories` ON portfolios.categories_id = categories.id";
+$education = "SELECT * FROM `education`";
 
 
 if (isset($kufaDataBase)) {
@@ -15,6 +16,8 @@ if (isset($kufaDataBase)) {
     $brandQuery = $kufaDataBase->Query($brands);
     $feedbackQuery = $kufaDataBase->Query($feedback);
     $portfolioQuery = $kufaDataBase->Query($portfolio);
+    $educationQuery = $kufaDataBase->Query($education);
+
 }
 
 ?>
