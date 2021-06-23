@@ -37,10 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     mkdir($featureNewLoc, 0777, true);
                 }
                 if (isset($kufaDataBase)) {
+                    $createPortfoliosTable = "CREATE TABLE IF NOT EXISTS `kufa`.`portfolios`(`p_id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `categories_id` INT NOT NULL,`body` TEXT NOT NULL,`thumbnail` VARCHAR(255) NOT NULL,`feature` VARCHAR(255) NOT NULL,`slug` VARCHAR(255) NOT NULL,PRIMARY KEY (`p_id`),FOREIGN KEY (`categories_id`) REFERENCES `categories`(`id`))ENGINE = InnoDB;";
+                    $createPortfoliosTableQuery = $kufaDataBase->Query($createPortfoliosTable);
+                }else{
+                    echo 'TABLE NOT EXISTS';
+                    }
+                if (isset($kufaDataBase, $createPortfoliosTableQuery)) {
+
                     $portfolioInsert = "INSERT INTO `portfolios`( `name`, `categories_id`,`body`,thumbnail,feature,`slug` ) VALUES ('$name','$categories','$text','$thumbnailName','$featureName','$slug')";
                     $portfolioInsertQuery = $kufaDataBase->Query($portfolioInsert);
                     if ($portfolioInsertQuery === TRUE) {
                         $lastInsertId = $kufaDataBase->insert_id;
+                        die($lastInsertId);
                         $newNameThumbnail = $lastInsertId . '~' . $thumbnailName;
                         $newNameFeature = $lastInsertId . '~' . $featureName;
                         $updateThumbnailLoc = 'upload/portfolio/thumbnail/' . $newNameThumbnail;
@@ -57,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     } else {
                         echo "data Insert Fail";
                     }
+                }else{
+                    echo 'error';
                 }
 
 

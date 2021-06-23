@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (in_array($imgExtension, $supportedExtension, true)) {
             $newName = 'client' . '~' . $imgName;
             $newLoc = 'upload/feedback/';
-            if (!file_exists($newLoc)) {
+            if (!is_dir($newLoc)) {
                 mkdir($newLoc, 0777, true);
             }
             $updatedNewLoc = 'upload/feedback/' . $newName;
