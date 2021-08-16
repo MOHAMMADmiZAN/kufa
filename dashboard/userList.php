@@ -44,7 +44,7 @@ if (isset($dataBase)) {
                                     <td><?= ++$index ?></td>
                                     <td><?= $user['fullName'] ?></td>
                                     <td><?= $user['email'] ?></td>
-                                    <td><?= $user['cellNumber'] ?></td>
+                                    <td><?= $user['cell'] ?></td>
                                     <td><a data-id="<?= $user['id'] ?>" type="button"
                                            class="btn btn-warning temporaryDelete">DELETE</a></td>
                                 </tr>
